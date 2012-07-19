@@ -66,7 +66,7 @@ typedef enum _RemoteControlEventIdentifier {
   // XXX dmp - differenciate center button
   kRemoteButtonCenter1         =1<<14,
   kRemoteButtonCenter2         =1<<16,
-  kRemoteButtonCenter_Hold      =1<<15,
+  kRemoteButtonCenter_Hold      =1<<15
 
 } RemoteControlEventIdentifier;
 
