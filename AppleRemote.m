@@ -176,9 +176,9 @@ const char* AppleRemoteDeviceName = "AppleIRController";
 		// new Aluminum model
 		// Mappings changed due to addition of a 7th center button
 		// Treat the new center button and play/pause button the same
-		[_cookieToButtonMapping setObject:[NSNumber numberWithInt:kRemoteButtonPlay]		forKey:@"33_21_20_8_2_33_21_20_8_2_"];
-		[_cookieToButtonMapping setObject:[NSNumber numberWithInt:kRemoteButtonPlay]		forKey:@"33_21_20_3_2_33_21_20_3_2_"];
-		[_cookieToButtonMapping setObject:[NSNumber numberWithInt:kRemoteButtonPlay_Hold]	forKey:@"33_21_20_11_2_33_21_20_11_2_"];		
+		[_cookieToButtonMapping setObject:[NSNumber numberWithInt:kRemoteButtonCenter1]		forKey:@"33_21_20_8_2_33_21_20_8_2_"];
+		[_cookieToButtonMapping setObject:[NSNumber numberWithInt:kRemoteButtonCenter2]		forKey:@"33_21_20_3_2_33_21_20_3_2_"];
+		[_cookieToButtonMapping setObject:[NSNumber numberWithInt:kRemoteButtonCenter_Hold]	forKey:@"33_21_20_11_2_33_21_20_11_2_"];		
 	}
 
 }
@@ -191,7 +191,10 @@ const char* AppleRemoteDeviceName = "AppleIRController";
 	
 	[super sendRemoteButtonEvent:event pressedDown:pressedDown];
 	
-	if (pressedDown && (event == kRemoteButtonRight || event == kRemoteButtonLeft || event == kRemoteButtonPlay || event == kRemoteButtonMenu || event == kRemoteButtonPlay_Hold)) {
+	if (pressedDown && (event == kRemoteButtonRight || event == kRemoteButtonLeft || event == kRemoteButtonPlay 
+    || event == kRemoteButtonMenu || event == kRemoteButtonPlay_Hold
+    || event == kRemoteButtonCenter1 || event == kRemoteButtonCenter2 || event == kRemoteButtonCenter_Hold
+    )) {
 		// There is no seperate event when the button is being released. We are simulating that event here
 		[super sendRemoteButtonEvent:event pressedDown:NO];
 	}
